@@ -1,11 +1,24 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import HeroSection from '@/components/home/HeroSection.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import 'marqy/dist/marqy.css';
+import AboutSection from '@/components/home/AboutSection.astro';
+import StatsSection from '@/components/home/StatsSection.astro';
+import StreamSection from '@/components/home/StreamSection.astro';
+import ContactSection from '@/components/home/ContactSection.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<main id="p_home">
+		 <HeroSection />
+		 <AboutSection/>
+		 <StatsSection client:visible/>
+		 <StreamSection/>
+		 <ContactSection/>
+	</main>
 </Layout>
+
+<style lang="scss">
+	main{
+	}
+</style>

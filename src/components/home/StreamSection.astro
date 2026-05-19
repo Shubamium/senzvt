@@ -1,0 +1,118 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import streamart from '@/assets/g/streamart.png';
+---
+<section id="stream">
+	<div class="confine">
+		<div class="stream">
+			 <div class="top">
+				<div class="left">
+					<div class="linehead">
+						<div class="line"></div>
+						<p>03 STREAM</p>
+						<hr>
+					</div>
+					<div class="heading">
+						<h2>● LIVESTREAM </h2>
+					</div>
+				</div>
+				<div class="right">
+					<button class="btn btn-outline" style={{'--btnColor':'#6E77FF'}}> 
+						<Icon name={'mingcute:twitch-fill'} is:inline />
+						<p>twitch.tv/senz</p>
+					</button>
+				</div>
+			 </div>
+			<div class="content">
+				<iframe class="streamframe" src="https://player.twitch.tv/?&amp;channel=senz&amp;parent=localhost" allowfullscreen="" allow="encrypted-media *;"></iframe>
+			</div>
+		</div>
+		<div class="art">
+			<Image alt={''} src={streamart} class={'streamart'}/>
+		</div>
+	</div>
+</section>
+<script>
+	import {inView,animate,stagger} from 'motion';
+	
+  inView("#stream", () => {
+    // Art first
+    animate(
+      "#stream .art",
+      { opacity: [0, 1] },
+      { duration: 1.1, ease: [0.76, 0, 0.24, 1] }
+    );
+
+    // Then the stream content
+    animate(
+      "#stream .stream",
+      { clipPath: ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"] },
+      { duration: 1.1, delay: 0.5, ease: [0.76, 0, 0.24, 1] }
+    );
+
+  }, {amount:0.5 });
+</script>
+<style lang="scss">
+  #stream{
+		position: relative;
+		z-index: -1;
+		.confine{
+			display: grid;
+			grid-template-columns: 1.2fr 1fr;
+
+			.stream{
+				padding-left: 100px;
+
+				.top{
+					display: flex;
+					justify-content: space-between;
+					align-items: flex-end;
+					padding: 1em;
+					padding-top: 3em;
+				}
+				.heading{
+					font-size: 2rem;
+					color: #6E77FF;
+					font-family: var(--fontH);
+					.btn-outline{
+						--btnColor:#6E77FF;
+					}
+				}
+				.content{
+					margin: 1em;
+					.streamframe{
+						border: none;
+						width: 100%;
+						aspect-ratio: 16 / 9;
+						height: auto;
+						border: 3px solid #012D5A;
+						box-shadow: 0px 0px 10px 10px rgb(221, 237, 255);
+						border-radius: 1em;
+					}
+				}
+			}
+
+			.art{
+				position: relative;
+				 width: 100%;
+				 height: 100%;
+				.streamart{
+					position: absolute;
+					height: 100%;
+					top: 0%;
+					right: 0%;
+					z-index: -1;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+
+	#stream .art{
+		opacity: 0;
+	}
+	#stream .stream {
+		clip-path: inset(0% 100% 0% 0%);
+	}
+</style>

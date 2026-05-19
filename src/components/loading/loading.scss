@@ -1,0 +1,96 @@
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1500;
+  top: 0%;
+  left: 0%;
+  background: linear-gradient(to bottom, #f3f4f9, #d1d1d1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .gif {
+    width: 180px;
+  }
+  .circle {
+    width: 500px;
+    height: 500px;
+    background: #6197ff;
+    opacity: 3%;
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+  }
+  .loadingside {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    user-select: none;
+  }
+
+  .snowflake {
+    display: none;
+    position: absolute;
+
+    &.l {
+      display: block;
+      left: 0%;
+      bottom: 0%;
+      width: 50vh;
+      height: auto;
+      animation: speen 15s infinite linear;
+      opacity: 0.2;
+    }
+    &.r {
+      display: block;
+      width: 2vw;
+      right: 20px;
+      top: 20px;
+
+      animation: speen 30s infinite linear reverse;
+    }
+  }
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    filter: drop-shadow(0px 0px 4px #bedeff);
+    h2 {
+      font-size: 4rem;
+      font-family: var(--fontH);
+      color: transparent;
+      background: linear-gradient(to bottom, #5d8ce8, #344e82);
+      background-clip: text;
+    }
+    .line {
+      &.r {
+        scale: -1;
+      }
+    }
+  }
+  .percentage {
+    font-size: 2rem;
+    color: #344e82;
+    font-weight: light;
+    line-height: 0.5;
+  }
+  .corner {
+    position: absolute;
+    width: 30vw;
+    height: auto;
+    &.l {
+      left: 0%;
+      top: 0%;
+      object-position: left top;
+    }
+    &.r {
+      right: 0%;
+      bottom: 0%;
+      scale: -1;
+      object-position: bottom;
+    }
+  }
+}

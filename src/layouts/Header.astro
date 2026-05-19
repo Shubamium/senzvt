@@ -1,0 +1,93 @@
+
+---
+import { Icon } from "astro-icon/components"
+---
+<header id="header" class="">
+	<div class="confine">
+		<div class="left">
+			<button class="btn btn-main"> 
+				<Icon name="mdi:hamburger-menu"/>
+				MENU
+			</button>
+		</div>
+		<div class="socials">
+			<a href="#" class="btn btn-headicon">
+				<Icon name={'mingcute:tiktok-fill'} is:inline/>
+			</a>
+			<a href="#" class="btn btn-headicon">
+				<Icon name={'mingcute:instagram-fill'} is:inline/>
+			</a>
+			<a href="#" class="btn btn-headicon">
+				<Icon name={'mingcute:youtube-fill'} is:inline/>
+			</a>
+			<a href="#" class="btn btn-headicon">
+				<Icon name={'mingcute:twitch-fill'} is:inline/>
+			</a>
+			<a href="#" class="btn btn-headicon">
+				<Icon name={'mingcute:social-x-fill'} is:inline/>
+			</a>
+		</div>
+	</div>
+</header>
+<script>
+	document.addEventListener('scroll',(e)=>{
+		const scrollY = window.scrollY;
+		if(scrollY > 500){
+			document.getElementById('header')?.classList.add('scrolled')
+		}else{
+			document.getElementById('header')?.classList.remove('scrolled')
+		}
+	})
+</script>
+<style lang="scss">
+		#header{
+			position: fixed;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			z-index: 1000;
+			padding: 1em;
+	
+			.confine{
+					transition: all 500ms ease;
+			padding: 1em;
+			border-radius: 1em;
+				max-width: 1440px;
+				margin: 0 auto;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.socials{
+					display: flex;
+					align-items: center;
+					gap: 3em;
+					.btn-headicon{
+						color: white;
+						width: 30px;
+					transition: all 500ms ease;
+						height: 30px;
+						svg{
+							width: 100%;
+							height: 100%;
+						}
+						filter: drop-shadow(0px 0px 5px rgb(135, 178, 226));
+					}
+				}
+			}
+			&.scrolled{
+				.confine{
+					background: rgba(231, 237, 247, 0.555);
+					backdrop-filter: blur(10px);
+					box-shadow: 0px 0px 15px 3px #133c6686;
+					.socials{
+						.btn-headicon{
+							color: #012D5A;
+							filter: drop-shadow(0px 0px 2px rgba(74, 79, 150, 0.432));
+						}
+					}
+				}
+			}
+		}
+</style>

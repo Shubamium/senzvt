@@ -1,0 +1,189 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import contactgif from '@/assets/g/contact.gif';
+---
+<section id="contact">
+	<div class="confine">
+		<div class="panel">
+			<form class="form">
+				<div class="linehead white">
+					<div class="line"></div>
+					<p>04 CONTACT</p>
+					<hr>
+				</div>
+				<div class="heading">
+					<h2>LET’S WORK  <span>❆</span> <br> TOGETHER</h2>
+				</div>
+				<div class="fg">
+					<div class="input">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name" placeholder="Write your name here!" >
+					</div>
+					<div class="input">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" placeholder="Write your email here!" >
+					</div>
+				
+				</div>
+					<div class="input">
+						<label for="message">Message</label>
+						<textarea name="message" id="message" placeholder="Write your message here!"></textarea>
+					</div>
+					<div class="action">
+						<div class="mail">
+							<Icon name={'mingcute:mail-fill'}/>
+							<p>your.email@gmail.com</p>
+						</div>
+						<button class="btn btn-main" type="submit">
+							<Icon name={'tabler:snowflake'} class={'icon'} is:inline/>
+							Submit
+						</button>
+					</div>
+			</form>
+			<div class="art">
+				<Image alt={''} src={contactgif} class={'sideart'}/>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	import {inView,animate} from 'motion';
+	  // Contact section
+  inView("#contact", () => {
+    animate(
+      "#contact .art",
+      { opacity: [0, 1], x: [-100, 0] },
+      { duration: 2, type:'spring' }
+    );
+
+    animate(
+      "#contact .form",
+      { clipPath: ["inset(0% 100% 0% 0%)", "inset(0% 0% 0% 0%)"] },
+      { duration:0.8, delay: 0.5, ease: "easeInOut" }
+    );
+  }, { amount:0.5});
+</script>
+<style lang="scss">
+  #contact{
+		position: relative;
+		&::before{
+			content:'';
+			position:absolute;
+			top:-100px;
+			left:0%;
+			width:100%;
+			height:55%;
+			background: #CEE6FF;
+			scale: 0.98 1;
+			transform-origin: top;
+			z-index: -20;
+			border-radius: 1em;
+		}
+		.confine{
+			.panel{
+				max-width: 90%;
+				border-radius: 1em;
+				background: url('/icetexture-4.png') , linear-gradient(to bottom, #6EBCE0,#103694) ;
+				margin: 100px auto;
+
+
+				outline: 5px solid #344E82;
+				outline-offset: 10px;
+
+				display: grid;
+				grid-template-columns: 1fr 1.5fr;
+				.linehead{
+					margin: .5em 0;
+				}
+
+				
+				.form{
+					padding-left: 2em;
+
+					position: relative;
+					padding-block: 2em;
+					z-index: 100;
+					height: 100%;
+					.heading{
+						font-size: 3rem;
+						font-family: var(--fontH);
+						line-height: 110%;
+						margin: .5em 0;
+						span{
+						}
+					}
+					.fg{
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 1em;
+					}
+					.input{
+						margin: .5em 0;
+						background: #7396C7;
+						border-radius: .4em;
+						border: 1px solid white;
+						padding: .5em 1em;
+						
+						display: flex;
+						flex-direction: column;
+						label{
+							font-weight: bolder;
+							color: white;
+							font-family: var(--fontH);
+							width: 100%;
+						}
+						input,textarea{
+							background: none;
+							font-family: var(--fontP);
+							border: none;
+							resize: none;
+							color: white;
+						}
+						textarea{
+							min-height: 150px;
+						}
+					}
+
+					.action{
+						display: flex;
+						justify-content: space-between;
+						.mail{
+							display: flex;
+							align-items: center;
+							gap: 1em;
+							svg{
+								width: 30px;
+								height: 30px;
+							}
+							p{
+								font-family: var(--fontH);
+							}
+						}
+					}
+				}
+				.art{
+					position: relative;
+
+					.sideart{
+						height: auto;
+						max-width: 1200px;
+						mask-image: linear-gradient(to right, transparent 0% , white 50%);
+						object-fit: cover;
+						position: absolute;
+						bottom: 0%;
+						right: 0%;
+					}
+				}
+			}
+		}
+	}
+	#contact .art{
+		opacity: 0;
+		transform-origin: bottom;
+	}
+	#contact .form {
+		clip-path: inset(0% 100% 0% 0%);
+	}
+	
+</style>

@@ -1,0 +1,200 @@
+---
+import { Image } from "astro:assets";
+
+import mainart from '@/assets/g/mainart.png';
+import sides from '@/assets/g/sides.png';
+import logo from '@/assets/g/logo.png';
+import { Icon } from 'astro-icon/components';
+import ReactMarquee from '@/components/marquee/ReactMarquee.tsx';
+import snowflake from '@/assets/g/bigsnowflake.png';
+---
+<section id="hero">
+	<ReactMarquee client:load/>
+	<div class="confine">
+		<div class="left">
+			<Image src={mainart} alt={''} class="mainart" ></Image>
+			<Image src={sides} alt={''} class="sides" ></Image>
+		</div>
+		<div class="right">
+			<Image src={snowflake} alt={''} class="logo" loading={'eager'} class="snowflake a "></Image>
+			<Image src={snowflake} alt={''} class="logo" loading={'eager'} class="snowflake b"></Image>
+			<Image src={snowflake} alt={''} class="logo" loading={'eager'} class="snowflake c "></Image>
+			
+			<Image src={logo} alt={''} class="logo" loading={'eager'}></Image>
+			<p class="subtitle">
+				VTUBER <span>◆</span> CONTENT CREATOR
+			</p>
+			<p class="shortbio">
+					Yo! I'm Senz, Ice Deity VTuber! Welcome Snowmies! ❄️
+			</p>
+			<div class="action">
+				<button class="btn btn-main">
+					<Icon name="tabler:snowflake"  class='icon' is:inline/>
+					Watch Stream
+				</button>
+				<button class="btn btn-main outline">
+					About me
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	import { animate, scroll } from "motion";
+	import Lenis from 'lenis';
+	const lenis = new Lenis({
+		autoRaf:true
+	});
+
+
+	document.addEventListener("mousemove", (e) => {
+		const xOffset = (e.clientX / window.innerWidth - 0.5) * 50;
+		const yOffset = (e.clientY / window.innerHeight - 0.5) * 50;
+
+		animate(".mainart", 
+			{ x: -xOffset, y: -yOffset }, 
+			{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+		);
+	});
+	document.addEventListener('scroll',(e)=>{
+		const scrollY = window.scrollY;
+		console.log(scrollY)
+		animate("#hero",{
+			 y:0 - scrollY / 5,
+		},{
+			duration:0.2
+		})
+	})
+</script>
+<style lang="scss">
+	#hero{
+		height: 100vh;
+		background: var(--bg), linear-gradient(to bottom, #0E2151,#0848B9);
+		background-size: 140%;
+		background-position: 71% 80%;
+		background-blend-mode: soft-light;
+		background-repeat: no-repeat;
+		// clip-path: polygon(0 0, 0 71%, 49% 93%, 83% 83%, 100% 100%, 100% 0);
+		// clip-path: polygon(0 0, 0 71%, 49% 93%, 86% 81%, 100% 100%, 100% 0);
+		clip-path: polygon(0 0, 0 71%, 49% 93%, 71% 81%, 100% 100%, 100% 0);
+		padding-top: 10px;
+
+		.senztext{
+			top: 10%;
+			position: relative;
+		}
+		.confine{
+			max-width: 1920px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			align-items: center;
+			 .mainart{
+					position: absolute;
+					left: -35%;
+					bottom: -5%;
+					height:100vh;
+					object-fit: contain;
+					object-position: bottom;
+					width: 100vw;
+					user-select: none;
+					pointer-events: none;
+					
+			 }
+			 .sides{
+				position: absolute;
+				right: 40%;
+				top:5%;
+				width: 30vw;
+				height: 40vh;
+				object-fit: contain;
+				animation: bobble 5s infinite ease-in-out;
+				transform-origin: bottom;
+				@keyframes bobble {
+					0%{
+						transform: rotate(3deg);
+					}
+					50%{
+						transform: rotate(-3deg);
+					}
+					100%{
+						transform: rotate(3deg);
+					}
+				}
+			 }
+			 .left{
+				z-index: -10;
+			 }
+			 .right{
+				text-align: center;
+				padding-top: 15vh;
+				.snowflake{
+					position: absolute;
+					display: none;
+					animation: speen 22s infinite linear;
+					&.a{
+						display: block;
+						bottom: 0%;
+						right: 0%;
+						height: 300px;
+						width: 300px;
+						opacity: 0.6;
+						
+					}
+					&.b{
+						display: block;
+						height: 150px;
+						width: 150px;
+						right: 15%;
+						opacity: 0.3;
+						bottom: 30%;
+					}
+					&.c{
+						display: block;
+						animation-direction: reverse;
+						height: 60px;
+						width: 60px;
+						right: 9%;
+						opacity: 0.2;
+						bottom: 50%;
+					}
+				}
+				.logo{
+					width: 40vw;
+					object-fit: contain;
+					height: 40vh;
+					margin-bottom: -5vh;
+				}
+				.subtitle{
+					font-family: var(--fontH);
+					font-size: 1vw;
+					margin: 1vh;
+				}
+				.shortbio{
+					font-size: 1vw;
+					font-weight: bold;
+				}
+				.action{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin: 1em 0;
+					gap: 1em;
+				}
+				.btn {
+					font-size: 1vw;
+					padding: 1em;
+					display: flex;
+					align-items: center;
+					padding: 0.25em 1em;
+					color: #012d5a;
+					border: 2px solid #5d8ce8;
+					gap: 1em;
+					font-family: var(--fontH);
+				}
+			}
+		}
+		
+	}
+	
+</style>

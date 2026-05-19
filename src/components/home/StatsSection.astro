@@ -1,0 +1,166 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+---
+<section id="stats">
+	<div class="confine">
+			<div class="linehead white">
+				<div class="line"></div>
+				<p>02 STATS</p>
+				<hr>
+			</div>
+			<div class="heading">
+				<h2>STATS</h2>
+			</div>
+
+			<div class="stat-list">
+				<a class="btn stat">
+					<Icon name="mingcute:youtube-fill" class="icon" is:inline/>
+					<h2>134.4k+</h2>
+					<p>Subscribers</p>
+				</a>
+				<a class="btn stat">
+					<Icon name="mingcute:social-x-fill" class="icon" is:inline/>
+					<h2>134.4k+</h2>
+					<p>Followers</p>
+				</a>
+				<a class="btn stat">
+					<Icon name="mingcute:twitch-fill" class="icon" is:inline/>
+					<h2>134.4k+</h2>
+					<p>Followers</p>
+				</a>
+						<a class="btn stat">
+					<Icon name="mingcute:instagram-fill" class="icon" is:inline/>
+					<h2>134.4k+</h2>
+					<p>Followers</p>
+				</a>
+						<a class="btn stat">
+					<Icon name="mingcute:tiktok-fill" class="icon" is:inline/>
+					<h2>134.4k+</h2>
+					<p>Followers</p>
+				</a>
+						<a class="btn stat">
+					<Icon name="mingcute:spotify-fill" class="icon" is:inline/>
+					<h2>134.4k+</h2>
+					<p>Listeners</p>
+				</a>
+			</div>
+	</div>
+</section>
+
+<script>
+	import {animate,inView,stagger} from 'motion';
+	inView('.stat-list',()=>{
+		const animateAll = async ()=>{
+			// Line grows from 0 width
+			animate("#stats .linehead .line", 
+				{ scaleX: [0, 1], opacity: [0, 1] }, 
+				{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+			);
+
+			// "02 STATS" label fades + slides in
+			 animate("#stats .linehead p", 
+				{ opacity: [0, 1], x: [-15, 0] }, 
+				{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }
+			);
+
+			// HR expands from left
+			await animate("#stats .linehead hr", 
+				{ scaleX: [0, 1], opacity: [0, 1], transformOrigin:'left' }, 
+				{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }
+			);
+
+			// Big STATS heading slides up
+			await animate("#stats .heading h2", 
+				{ opacity: [0, 1], y: [40, 0], letterSpacing: ["0.3em", "0em"] }, 
+				{ duration: 0.7, delay: 0, ease: [0.22, 1, 0.36, 1] }
+			);
+			animate('.stat-list .stat', {
+				opacity:[0,1],
+				scale:[0.5,1.1,1],
+				rotate:[0, -10,0],
+			},{
+				duration: 1,
+				delay: stagger(0.2),
+				type:'spring'
+			})
+		}
+		animateAll()
+	},{
+		amount:0.5
+	})
+</script>
+<style lang="scss">
+  #stats{
+		background: linear-gradient(to bottom, #6EBCE0,#103694);
+ 		//  clip-path: polygon(0% 1%, 85% 4%, 100% 0%, 100% 100%, 18% 91%, 0% 100%);
+		 clip-path: polygon(0 0, 73% 8%, 100% 0%, 100% 100%, 18% 91%, 0% 100%, 0 13%);
+		margin: -50px 0;
+		.confine{
+			.linehead{
+				.line{
+					opacity: 0;
+				}
+				p{
+					opacity: 0;
+				}
+				hr{
+					opacity: 0;
+				}
+			}
+			max-width: 1440px;
+			margin: 0 auto;
+			margin-top: 2em;
+			padding-block: 5em;
+			.heading{
+				h2{
+					opacity: 0;
+					font-size: 3rem;
+					color: white;
+					font-family: var(--fontH);
+				}
+			}
+			.stat-list{
+				display: flex;
+				justify-content: space-between;
+				gap: 1em;
+				margin-block: 2em;
+				filter: drop-shadow(0px 0px 20px #097EF7);
+				.stat{
+					width: 300px;
+					background:radial-gradient(circle, #3993EE, #457be7b7), url('/icetexture.webp');
+					height: auto;
+					border: 1px solid white;
+					box-shadow: inset 0px 0px 30px 20px rgba(255, 255, 255, 0.348);
+					opacity: 0;
+					&:hover{
+						box-shadow: inset 0px 0px 30px 20px rgba(255, 255, 255, 0.748);
+						transition: all 150ms ease;
+					}
+					transition: initial;
+					min-height: 100px;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					padding: 50px 1em ;
+					border-radius: .1em;
+					svg{
+						width: 80px;
+						height: 80px;
+						margin-bottom: 1em;
+						filter: drop-shadow(0px 0px 4px rgba(12, 33, 63, 0.393));
+					}
+					h2{
+						font-weight: bolder;
+						filter: drop-shadow(0px 0px 4px rgba(12, 33, 63, 0.393));
+						font-family: var(--fontH);
+						font-size: 1.9rem;
+					}
+				}
+			}
+		}
+	}
+</style>
