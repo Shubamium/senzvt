@@ -1,117 +1,150 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import streamart from '@/assets/g/streamart.png';
+import streamart from "@/assets/g/streamart.png";
 ---
+
 <section id="stream">
-	<div class="confine">
-		<div class="stream">
-			 <div class="top">
-				<div class="left">
-					<div class="linehead">
-						<div class="line"></div>
-						<p>03 STREAM</p>
-						<hr>
-					</div>
-					<div class="heading">
-						<h2>● LIVESTREAM </h2>
-					</div>
-				</div>
-				<div class="right">
-					<button class="btn btn-outline" style={{'--btnColor':'#6E77FF'}}> 
-						<Icon name={'mingcute:twitch-fill'} is:inline />
-						<p>twitch.tv/senz</p>
-					</button>
-				</div>
-			 </div>
-			<div class="content">
-				<iframe class="streamframe" src="https://player.twitch.tv/?&amp;channel=senz&amp;parent=localhost" allowfullscreen="" allow="encrypted-media *;"></iframe>
-			</div>
-		</div>
-		<div class="art">
-			<Image alt={''} src={streamart} class={'streamart'}/>
-		</div>
-	</div>
+  <div class="confine">
+    <div class="side-zigs"></div>
+    <div class="stream">
+      <div class="top">
+        <div class="left">
+          <div class="linehead">
+            <div class="line"></div>
+            <p>03 STREAM</p>
+            <hr />
+          </div>
+          <div class="heading">
+            <h2>● LIVESTREAM</h2>
+          </div>
+        </div>
+        <div class="right">
+          <a
+            href="https://twitch.tv/senz"
+            class="btn btn-outline"
+            style={{ "--btnColor": "#6E77FF" }}
+          >
+            <Icon name={"mingcute:twitch-fill"} is:inline />
+            <p>twitch.tv/senz</p>
+          </a>
+        </div>
+      </div>
+      <div class="content">
+        <iframe
+          class="streamframe"
+          src="https://player.twitch.tv/?&channel=senz&parent=senz.to"
+          allowfullscreen=""
+          allow="encrypted-media *;"></iframe>
+      </div>
+    </div>
+    <div class="art">
+      <Image alt={""} src={streamart} class={"streamart"} />
+    </div>
+  </div>
 </section>
 <script>
-	import {inView,animate,stagger} from 'motion';
-	
-  inView("#stream", () => {
-    // Art first
-    animate(
-      "#stream .art",
-      { opacity: [0, 1] },
-      { duration: 1.1, ease: [0.76, 0, 0.24, 1] }
-    );
+  import { inView, animate } from "motion";
 
-    // Then the stream content
-    animate(
-      "#stream .stream",
-      { clipPath: ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"] },
-      { duration: 1.1, delay: 0.5, ease: [0.76, 0, 0.24, 1] }
-    );
+  inView(
+    "#stream",
+    () => {
+      // Art first
+      animate(
+        "#stream .art",
+        { opacity: [0, 1] },
+        { duration: 1.1, ease: [0.76, 0, 0.24, 1] },
+      );
 
-  }, {amount:0.8 });
+      // Then the stream content
+      animate(
+        "#stream .stream",
+        { clipPath: ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"] },
+        { duration: 1.1, delay: 0.5, ease: [0.76, 0, 0.24, 1] },
+      );
+    },
+    { amount: 0.4 },
+  );
+
+  document.addEventListener("scroll", () => {
+    animate("#stream .side-zigs", {
+      backgroundPositionY: `${window.scrollY * 0.5}px`,
+    });
+  });
 </script>
 <style lang="scss">
-  #stream{
-		position: relative;
-		.confine{
-			display: grid;
-			grid-template-columns: 1.2fr 1fr;
+  #stream {
+    position: relative;
 
-			.stream{
-				padding-left: 100px;
+    .side-zigs {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 50px;
+      height: 100%;
+      background-image: url("/zigs.png");
+      background-repeat: repeat-y;
+      background-size: cover;
+      z-index: -1;
+    }
+    .confine {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
 
-				.top{
-					display: flex;
-					justify-content: space-between;
-					align-items: flex-end;
-					padding: 1em;
-					padding-top: 3em;
-				}
-				.heading{
-					font-size: 2rem;
-					color: #6E77FF;
-					font-family: var(--fontH);
-					.btn-outline{
-						--btnColor:#6E77FF;
-					}
-				}
-				.content{
-					margin: 1em;
-					.streamframe{
-						border: none;
-						width: 100%;
-						aspect-ratio: 16 / 9;
-						height: auto;
-						border: 3px solid #012D5A;
-						box-shadow: 0px 0px 10px 10px rgb(221, 237, 255);
-						border-radius: 1em;
-					}
-				}
-			}
+      .stream {
+        padding-left: 100px;
 
-			.art{
-				position: relative;
-				 width: 100%;
-				 height: 100%;
-				.streamart{
-					position: absolute;
-					height: 100%;
-					top: 0%;
-					right: 0%;
-					z-index: -1;
-					object-fit: cover;
-				}
-			}
-		}
-	}
+        .top {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          padding: 1em;
+          padding-top: 3em;
+        }
+        .heading {
+          font-size: 2rem;
+          color: #6e77ff;
+          font-family: var(--fontH);
+          .btn-outline {
+            --btnColor: #6e77ff;
+            text-decoration: none;
+          }
+        }
+        .content {
+          margin: 1em;
+          .streamframe {
+            border: none;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            border: 3px solid #012d5a;
+            box-shadow: 0px 0px 10px 10px rgb(221, 237, 255);
+            border-radius: 1em;
+          }
+        }
+      }
 
-	#stream .art{
-		opacity: 0;
-	}
-	#stream .stream {
-		clip-path: inset(0% 100% 0% 0%);
-	}
+      .art {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .streamart {
+          position: absolute;
+          height: 100%;
+          top: 0%;
+          right: 0%;
+          z-index: -1;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  #stream .art {
+    opacity: 0;
+  }
+  #stream .stream {
+    clip-path: inset(0% 100% 0% 0%);
+  }
 </style>

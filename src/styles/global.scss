@@ -27,6 +27,7 @@ button {
 }
 
 .btn {
+  text-decoration: none;
   cursor: pointer;
   transition: all 200ms ease;
   &:hover {
@@ -75,7 +76,7 @@ button {
   background: none;
   --btnColor: black;
   border-radius: 0.5em;
-  border: 2px solid var(--btnColor);
+  border: 3px solid var(--btnColor);
   color: var(--btnColor);
   padding: 0.5em 1em;
   display: flex;
@@ -94,10 +95,17 @@ button {
     color: white;
   }
 }
-main {
-  position: relative;
-  z-index: 1;
-}
+
+// body:has(.sidemenu.open) main {
+//   filter: brightness(50%);
+//   opacity: 0.2;
+//   transform: translateX(40vw);
+// }
+// body main {
+//   position: relative;
+//   z-index: 1;
+//   transition: all 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+// }
 .linehead {
   font-size: 1.5rem;
   display: flex;

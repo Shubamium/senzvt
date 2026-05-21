@@ -1,73 +1,68 @@
 ---
-import '@/styles/global.scss';
-import bgImage from '@/assets/b/iceart.png';
-import Header from './Header.astro';
-import Footer from './Footer.astro';
-import Loading from '@/components/loading/Loading';
-
+import "@/styles/global.scss";
+import bgImage from "@/assets/b/iceart.png";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import Loading from "@/components/loading/Loading";
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Senz Site </title>
-		<style>
-			@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-		</style>
-	</head>
-	<body style={`--bg:url(${bgImage.src})`} >
-		<div class="side-line">
-			<div class="l">
-				<img src="/starline.svg" alt="" class="top">
-				<img src="/starline.svg" alt="" class="bottom">
-			</div>
-			<div class="r">
-					
-				<img src="/starline.svg" alt="" class="top">
-				<img src="/starline.svg" alt="" class="bottom">
-			</div>
-		</div>
-		</div>
-		<Loading client:load/>
-		<Header/>
-		<slot />
-		<Footer/>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Senz Site</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+    </style>
+  </head>
+  <body style={`--bg:url(${bgImage.src})`}>
+    <div class="side-line">
+      <div class="l">
+        <img src="/starline.svg" alt="" class="top" />
+        <img src="/starline.svg" alt="" class="bottom" />
+      </div>
+      <div class="r">
+        <img src="/starline.svg" alt="" class="top" />
+        <img src="/starline.svg" alt="" class="bottom" />
+      </div>
+    </div>
+  </body>
+  <!-- <Loading client:load/> -->
+  <Header />
+  <slot />
+  <Footer />
 </html>
 
 <style lang="scss" is:global>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-	body:has(#loading){
-		main{
-			opacity: 0;
-		}
-	}
-	html,
-	body,
-	main {
-		max-width: 100vw;
-		overflow-x: clip;
-		
-	}
-	main{
-		overflow: hidden;
-		transition: opacity 1500ms ease;
-		z-index: 10;
-	}
+  body:has(#loading) {
+    main {
+      opacity: 0;
+    }
+  }
+  html,
+  body,
+  main {
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+  main {
+    overflow: hidden;
+    transition: opacity 1500ms ease;
+    z-index: 10;
+  }
 
-	:root{
-		scroll-behavior: smooth;
-	}
-	
+  :root {
+    scroll-behavior: smooth;
+  }
 </style>
