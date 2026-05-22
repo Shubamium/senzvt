@@ -22,7 +22,7 @@ import backice from "@/assets/d/backice.png";
         alt={""}
         class="logo"
         loading={"eager"}
-        class="snowflake top"
+        class="decor snowflake top"
       />
     </div>
     <div class="right">
@@ -109,6 +109,13 @@ import backice from "@/assets/d/backice.png";
     clip-path: polygon(0 0, 0 71%, 49% 93%, 71% 81%, 100% 100%, 100% 0);
     padding-top: 10px;
 
+    @media screen and (max-width: 1024px) {
+      height: auto;
+      background-size: cover;
+    }
+    @media screen and (max-width: 768px) {
+      clip-path: polygon(0 0, 100% 1%, 100% 100%, 76% 93%, 46% 99%, 0 85%);
+    }
     position: relative;
     .senztext {
       top: 10%;
@@ -120,9 +127,22 @@ import backice from "@/assets/d/backice.png";
       display: grid;
       grid-template-columns: 1fr 2fr;
       align-items: center;
+      @media screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: initial;
+      }
+
       .left {
+        z-index: -10;
+        @media screen and (max-width: 1024px) {
+          z-index: 1;
+        }
         .snowflake {
           animation: speen 20s infinite linear;
+          @media screen and (max-width: 1024px) {
+            display: none;
+          }
           @keyframes speen {
             0% {
               transform: rotate(0deg);
@@ -130,6 +150,9 @@ import backice from "@/assets/d/backice.png";
             100% {
               transform: rotate(360deg);
             }
+          }
+          @media screen and (max-width: 550px) {
+            display: none;
           }
           position: absolute;
           top: 0%;
@@ -139,58 +162,121 @@ import backice from "@/assets/d/backice.png";
           z-index: -10;
           opacity: 0.1;
         }
-      }
-      .mainart {
-        position: absolute;
-        left: -35%;
-        bottom: -5%;
-        height: 100vh;
-        object-fit: contain;
-        object-position: bottom;
-        width: 100vw;
-        user-select: none;
-        pointer-events: none;
-        z-index: 1;
-      }
-      .sides {
-        position: absolute;
-        right: 40%;
-        top: 5%;
-        width: 30vw;
-        height: 40vh;
-        object-fit: contain;
-        animation: bobble 5s infinite ease-in-out;
-        transform-origin: bottom;
-        @keyframes bobble {
-          0% {
-            transform: rotate(3deg);
+        .mainart {
+          position: absolute;
+          left: -35%;
+          bottom: -5%;
+          height: 100vh;
+          object-fit: contain;
+          object-position: bottom;
+          width: 100vw;
+          user-select: none;
+          pointer-events: none;
+          z-index: 1;
+          @media screen and (max-width: 768px) {
+            width: 700px;
+            height: 700px;
+            left: -40%;
+            bottom: -10%;
+            @keyframes updown {
+              from {
+                translate: 0 2%;
+              }
+              to {
+                translate: 0 -5%;
+              }
+            }
+            animation: updown 5s infinite ease-in-out alternate-reverse;
           }
-          50% {
-            transform: rotate(-3deg);
+          @media screen and (max-width: 550px) {
+            left: -300px;
           }
-          100% {
-            transform: rotate(3deg);
+          @media screen and (max-width: 440px) {
+            left: -350px;
+            height: 500px;
+            bottom: -50px;
           }
         }
-      }
-      .backice {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        scale: 0.6;
-        transform-origin: bottom left;
-        filter: drop-shadow(0px -20px 40px #1645ff78);
-      }
-      .left {
-        z-index: -10;
+        .sides {
+          position: absolute;
+          right: 40%;
+          top: 5%;
+          width: 30vw;
+          height: 40vh;
+          object-fit: contain;
+          animation: bobble 5s infinite ease-in-out;
+          transform-origin: bottom;
+          @keyframes bobble {
+            0% {
+              transform: rotate(3deg);
+            }
+            50% {
+              transform: rotate(-3deg);
+            }
+            100% {
+              transform: rotate(3deg);
+            }
+          }
+
+          @media screen and (max-width: 1024px) {
+            width: 300px;
+            height: auto;
+            right: 0%;
+            top: initial;
+            bottom: 170px;
+            z-index: 100;
+          }
+          @media screen and (max-width: 660px) {
+            right: -50px;
+          }
+          @media screen and (max-width: 550px) {
+            // right: -0px;
+            bottom: 200px;
+            width: 240px;
+          }
+          @media screen and (max-width: 420px) {
+            right: -80px;
+            width: 200px;
+          }
+        }
+        .backice {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1;
+          scale: 0.6;
+          transform-origin: bottom left;
+          filter: drop-shadow(0px -20px 40px #1645ff78);
+          @media screen and (max-width: 768px) {
+            height: 700px;
+            width: 900px;
+            top: initial;
+            bottom: -100px;
+          }
+        }
+        @media screen and (max-width: 1024px) {
+          height: 500px;
+        }
       }
       .right {
         text-align: center;
         padding-top: 15vh;
+        @media screen and (max-width: 1024px) {
+          padding-top: 0;
+        }
+        @media screen and (max-width: 550px) {
+          max-width: 90%;
+          margin: 0 auto;
+        }
+        @media screen and (max-width: 1024px) {
+          height: 600px;
+        }
+        @media screen and (max-width: 768px) {
+          height: auto;
+        }
         .snowflake {
           position: absolute;
           display: none;
@@ -202,6 +288,12 @@ import backice from "@/assets/d/backice.png";
             height: 300px;
             width: 300px;
             opacity: 0.6;
+            @media screen and (max-width: 1200px) {
+              right: -20%;
+            }
+          }
+          @media screen and (max-width: 550px) {
+            z-index: -100;
           }
           &.b {
             display: block;
@@ -226,15 +318,36 @@ import backice from "@/assets/d/backice.png";
           object-fit: contain;
           height: 40vh;
           margin-bottom: -5vh;
+          @media screen and (max-width: 1024px) {
+            width: auto;
+            height: 300px;
+          }
+          @media screen and (max-width: 768px) {
+            height: auto;
+            width: 80%;
+            padding-top: 10%;
+          }
         }
         .subtitle {
           font-family: var(--fontH);
           font-size: 1vw;
           margin: 1vh;
+          @media screen and (max-width: 1024px) {
+            font-size: 1.4rem;
+          }
+          @media screen and (max-width: 550px) {
+            font-size: 1.1rem;
+          }
         }
         .shortbio {
           font-size: 1vw;
           font-weight: bold;
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+          }
+          @media screen and (max-width: 550px) {
+            font-size: 0.9rem;
+          }
         }
         .action {
           display: flex;
@@ -253,6 +366,13 @@ import backice from "@/assets/d/backice.png";
           border: 2px solid #5d8ce8;
           gap: 1em;
           font-family: var(--fontH);
+          @media screen and (max-width: 1024px) {
+            font-size: 1.4rem;
+          }
+          @media screen and (max-width: 550px) {
+            font-size: 1rem;
+            white-space: nowrap;
+          }
         }
       }
     }

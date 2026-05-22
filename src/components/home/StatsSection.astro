@@ -18,12 +18,12 @@ import { Icon } from "astro-icon/components";
       <img src="/bigsnowflake.png" alt="" class="snowflake-list" />
       <a href="https://www.youtube.com/@SenzVT" class="btn stat">
         <Icon name="mingcute:youtube-fill" class="icon" is:inline />
-        <h2>160k+</h2>
+        <h2>165k+</h2>
         <p>Subscribers</p>
       </a>
       <a href="https://x.com/SenzVT" class="btn stat">
         <Icon name="mingcute:social-x-fill" class="icon" is:inline />
-        <h2>100k+</h2>
+        <h2>102k+</h2>
         <p>Followers</p>
       </a>
       <a href="https://www.twitch.tv/senz" class="btn stat">
@@ -33,7 +33,7 @@ import { Icon } from "astro-icon/components";
       </a>
       <a href="https://www.instagram.com/senz.vt/" class="btn stat">
         <Icon name="mingcute:instagram-fill" class="icon" is:inline />
-        <h2>70k+</h2>
+        <h2>73k+</h2>
         <p>Followers</p>
       </a>
       <a href="https://www.tiktok.com/@senzvt" class="btn stat">
@@ -46,7 +46,7 @@ import { Icon } from "astro-icon/components";
         class="btn stat"
       >
         <Icon name="mingcute:spotify-fill" class="icon" is:inline />
-        <h2>2.7k+</h2>
+        <h2>615k+</h2>
         <p>Listeners</p>
       </a>
     </div>
@@ -120,6 +120,9 @@ import { Icon } from "astro-icon/components";
       0% 100%,
       0 13%
     );
+    @media screen and (max-width: 550px) {
+      clip-path: polygon(0% 0%, 81% 4%, 100% 0%, 100% 100%, 12% 95%, 0% 100%);
+    }
     margin: -50px 0;
     .confine {
       .linehead {
@@ -133,6 +136,7 @@ import { Icon } from "astro-icon/components";
           opacity: 0;
         }
         position: relative;
+        z-index: 10;
       }
       .snowflakestat {
         width: 180px;
@@ -154,12 +158,19 @@ import { Icon } from "astro-icon/components";
         z-index: -1;
         opacity: 0.35;
         animation: speen 35s linear infinite reverse;
+        @media screen and (max-width: 1024px) {
+          z-index: -10;
+        }
       }
 
       max-width: 1440px;
       margin: 0 auto;
       margin-top: 2em;
       padding-block: 5em;
+
+      @media screen and (max-width: 1440px) {
+        max-width: 90%;
+      }
       .heading {
         h2 {
           opacity: 0;
@@ -175,8 +186,18 @@ import { Icon } from "astro-icon/components";
         gap: 1em;
         margin-block: 2em;
         filter: drop-shadow(0px 0px 20px #097ef7);
+        @media screen and (max-width: 1024px) {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media screen and (max-width: 550px) {
+          grid-template-columns: 1fr 1fr;
+        }
         .stat {
           width: 300px;
+          @media screen and (max-width: 1024px) {
+            width: 100%;
+          }
           background:
             radial-gradient(circle, #3993ee, #457be7b7), url("/icetexture.webp");
           height: auto;
@@ -198,17 +219,28 @@ import { Icon } from "astro-icon/components";
           text-align: center;
           padding: 50px 1em;
           border-radius: 0.1em;
+          @media screen and (max-width: 768px) {
+            padding: 30px 0.5em;
+            min-height: 80px;
+          }
           svg {
             width: 100px;
             height: 100px;
             margin-bottom: 1em;
             filter: drop-shadow(0px 0px 4px rgba(12, 33, 63, 0.393));
+            @media screen and (max-width: 768px) {
+              width: 50px;
+              height: 50px;
+            }
           }
           h2 {
             font-weight: bolder;
             filter: drop-shadow(0px 0px 4px rgba(12, 33, 63, 0.393));
             font-family: var(--fontH);
             font-size: 1.9rem;
+            @media screen and (max-width: 768px) {
+              font-size: 1.4rem;
+            }
           }
         }
       }

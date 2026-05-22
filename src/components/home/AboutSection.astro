@@ -14,31 +14,34 @@ import icer from "@/assets/d/about_icer.png";
     <div class="l">
       <div class="linehead">
         <div class="line"></div>
-        <p>01 ABOUT</p>
+        <p>01 ABOUT ME</p>
         <hr />
       </div>
 
       <div class="heading">
-        <h2 class="bio">Yo! I'm <span>Senz</span></h2>
-        <p class="subtitle">(Placeholder) Welcome Snowmies! ❄️</p>
+        <h2 class="bio">
+          I'm <span class="name">Senz</span>
+          <span class="emoji">❄️💙</span>
+        </h2>
+        <p class="subtitle">Welcome to my page!</p>
       </div>
       <p class="desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        I’m a frost themed VTuber and full time content creator with a passion
+        for technology, horror, variety gaming, humor, and community!
       </p>
 
       <div class="points">
         <div class="point">
-          <p>Something Text</p>
+          <p>Content Creator/VTuber</p>
         </div>
         <div class="point">
-          <p>Something Text</p>
+          <p>Variety Streamer</p>
         </div>
         <div class="point">
-          <p>Something Text</p>
+          <p>Voice Actor</p>
         </div>
         <div class="point">
-          <p>Something Text</p>
+          <p>Gamer</p>
         </div>
       </div>
 
@@ -404,16 +407,28 @@ import icer from "@/assets/d/about_icer.png";
       margin: 0 auto;
       height: 800px;
 
-      align-items: center;
-      @media screen and (min-width: 1024px) {
-        margin-top: -200px;
+      @media screen and (max-width: 1440px) {
+        max-width: 90%;
       }
+
+      align-items: center;
+      @media screen and (max-width: 1024px) {
+        height: auto;
+        margin-top: -200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
       .linehead {
         padding-bottom: 1em;
       }
       .l {
         color: #5d86af;
-
+        @media screen and (max-width: 1024px) {
+          padding-top: 200px;
+        }
         .heading {
           padding-bottom: 1em;
           margin: 1em 0;
@@ -421,21 +436,33 @@ import icer from "@/assets/d/about_icer.png";
             font-size: 5rem;
             color: #012d5a;
             line-height: 0.8;
-            span {
+            @media screen and (max-width: 768px) {
+              font-size: 3rem;
+            }
+            .name {
               background: linear-gradient(to left, #5d8ce8, #0360c0);
               color: transparent;
               background-clip: text;
+            }
+            .emoji {
+              font-size: 3rem;
             }
           }
           .subtitle {
             font-size: 1.8rem;
             color: #012d5a;
             line-height: 0.9;
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
           }
         }
         .desc {
           margin-block: 1em;
           font-size: 1.2rem;
+          @media screen and (max-width: 768px) {
+            font-size: 1rem;
+          }
         }
         .points {
           display: grid;
@@ -443,6 +470,10 @@ import icer from "@/assets/d/about_icer.png";
           gap: 0.5em;
           max-width: 80%;
           margin-block: 1em;
+          @media screen and (max-width: 768px) {
+            max-width: 100%;
+          }
+          font-weight: bolder;
           .point {
             color: #012d5a;
             background: #ced1ff;
@@ -450,6 +481,9 @@ import icer from "@/assets/d/about_icer.png";
             border-radius: 1em;
             p {
               font-size: 1.1rem;
+              @media screen and (max-width: 768px) {
+                font-size: 0.8rem;
+              }
             }
           }
         }
@@ -458,11 +492,18 @@ import icer from "@/assets/d/about_icer.png";
           display: flex;
           gap: 2em;
           margin-block: 2em;
+          @media screen and (max-width: 768px) {
+            gap: 0.5em;
+          }
           .btn-contact {
             width: 50px;
             height: 40px;
             padding: 0.4em;
             border-radius: 0.4em;
+            @media screen and (max-width: 768px) {
+              width: 40px;
+              height: 40px;
+            }
             &:hover {
               outline: 2px solid #012d5a;
             }
@@ -477,12 +518,39 @@ import icer from "@/assets/d/about_icer.png";
         .action {
           display: flex;
           gap: 1em;
+          @media screen and (max-width: 768px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+          .btn {
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
+            @media screen and (max-width: 420px) {
+              display: flex;
+              flex-direction: column;
+              background: var(--btnColor);
+              color: white;
+            }
+          }
         }
       }
       .r {
         position: relative;
         height: 100%;
         width: 100%;
+        @media screen and (max-width: 1024px) {
+          width: 100%;
+          height: 700px;
+          left: -50px;
+          position: relative;
+        }
+        @media screen and (max-width: 550px) {
+          height: 600px;
+        }
+        @media screen and (max-width: 420px) {
+          height: 400px;
+        }
         .abouta,
         .aboutb {
           position: absolute;
@@ -493,6 +561,9 @@ import icer from "@/assets/d/about_icer.png";
           opacity: 0;
           border: 20px solid white;
           box-shadow: 0px 0px 35px 15px #1888ff2d;
+          @media screen and (max-width: 550px) {
+            border-width: 10px;
+          }
           &::before {
             content: "";
             position: absolute;
@@ -516,6 +587,10 @@ import icer from "@/assets/d/about_icer.png";
           scale: 0.6;
           right: -30%;
           rotate: 5deg;
+          @media screen and (max-width: 1024px) {
+            scale: 0.4;
+            right: -200px;
+          }
         }
       }
     }
@@ -524,6 +599,9 @@ import icer from "@/assets/d/about_icer.png";
       bottom: 0%;
       left: 0%;
       z-index: -1;
+      @media screen and (max-width: 550px) {
+        bottom: -50px;
+      }
     }
     .icer {
       position: absolute;
@@ -531,6 +609,10 @@ import icer from "@/assets/d/about_icer.png";
       rotate: -4deg;
       right: 0%;
       z-index: -4;
+
+      @media screen and (max-width: 550px) {
+        display: none;
+      }
     }
   }
 </style>

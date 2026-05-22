@@ -1,7 +1,7 @@
 import Image from "astro/components/Image.astro";
 import { Marqy } from "marqy";
 import senzmarquee from "@/assets/d/senzmarquee.png";
-
+import "./marquee.scss";
 type Props = {};
 
 export default function ReactMarquee({}: Props) {

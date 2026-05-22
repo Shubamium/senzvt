@@ -111,10 +111,16 @@ button {
   display: flex;
   gap: 0.3em;
 
+  @media screen and (max-width: 550px) {
+    font-size: 1.2rem;
+  }
   .line {
     height: 30px;
     width: 5px;
     background: #0360c0;
+    @media screen and (max-width: 550px) {
+      height: 20px;
+    }
   }
   color: #0360c0;
   font-family: var(--fontH);
@@ -126,6 +132,10 @@ button {
     clip-path: polygon(0 0, 100% 0, 86% 100%, 0% 100%);
     border: none;
     gap: 1em;
+    @media screen and (max-width: 550px) {
+      width: 120px;
+      height: 20px;
+    }
   }
 
   &.white {
@@ -159,6 +169,9 @@ button {
   width: 100%;
   user-select: none;
   pointer-events: none;
+  @media screen and (max-width: 550px) {
+    display: none;
+  }
   .l,
   .r {
     display: flex;
@@ -174,6 +187,12 @@ button {
     opacity: 0.5;
     .bottom {
       scale: 1 -1;
+    }
+    @media screen and (max-width: 1024px) {
+      .top,
+      .bottom {
+        width: 4vw;
+      }
     }
   }
 
