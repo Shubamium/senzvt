@@ -22,12 +22,19 @@
     position: absolute;
     border-radius: 50%;
     z-index: -1;
+    @media screen and (max-width: 1280px) {
+      width: 300px;
+      height: 300px;
+    }
   }
   .loadingside {
     position: absolute;
     right: 0%;
     bottom: 0%;
     user-select: none;
+    @media screen and (max-width: 1024px) {
+      width: 80vw;
+    }
   }
 
   .snowflake {
@@ -42,6 +49,10 @@
       height: auto;
       animation: speen 15s infinite linear;
       opacity: 0.2;
+      @media screen and (max-width: 1280px) {
+        width: 30vw;
+        opacity: 0.1;
+      }
     }
     &.r {
       display: block;
@@ -49,6 +60,9 @@
       right: 20px;
       top: 20px;
 
+      @media screen and (max-width: 1024px) {
+        width: 6vh;
+      }
       animation: speen 30s infinite linear reverse;
     }
   }
@@ -64,8 +78,14 @@
       color: transparent;
       background: linear-gradient(to bottom, #5d8ce8, #344e82);
       background-clip: text;
+      @media screen and (max-width: 1024px) {
+        font-size: 6vw;
+      }
     }
     .line {
+      @media screen and (max-width: 1024px) {
+        max-width: 20vw;
+      }
       &.r {
         scale: -1;
       }
@@ -76,11 +96,17 @@
     color: #344e82;
     font-weight: light;
     line-height: 0.5;
+    @media screen and (max-width: 1024px) {
+      font-size: 4vw;
+    }
   }
   .corner {
     position: absolute;
     width: 30vw;
     height: auto;
+    @media screen and (max-width: 1024px) {
+      width: 80vw;
+    }
     &.l {
       left: 0%;
       top: 0%;

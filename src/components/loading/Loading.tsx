@@ -137,7 +137,7 @@ export default function Loading({}: Props) {
         const next = Math.round(prev + Math.random() * 5);
         return next >= 100 ? 100 : next;
       });
-      setTimeout(addLoad, Math.random() * 300);
+      setTimeout(addLoad, Math.random() * 400);
     };
     addLoad();
   }, []);
