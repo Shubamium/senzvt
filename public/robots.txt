@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://senz.to/sitemap-index.xml
