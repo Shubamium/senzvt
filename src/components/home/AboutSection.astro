@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 
 import AboutA from "@/assets/g/about_a.png";
 import AboutB from "@/assets/g/about_b.png";
+import AboutC from "@/assets/g/about_c.png";
 import refsheet from "@/assets/g/refsheet.jpg";
 import icel from "@/assets/d/about_icel.png";
 import icer from "@/assets/d/about_icer.png";
@@ -27,8 +28,8 @@ import icer from "@/assets/d/about_icer.png";
       </div>
       <p class="desc">
         I’m a frost themed VTuber and full time content creator for over 7 years
-        with a passion for technology, horror, variety gaming, humor, singing,
-        voice acting, and community!
+        with a passion for technology, horror, variety gaming, humor, physical
+        fitness, skincare singing, voice acting, and community!
       </p>
 
       <div class="points">
@@ -43,6 +44,9 @@ import icer from "@/assets/d/about_icer.png";
         </div>
         <div class="point">
           <p>Horror Enthusiast</p>
+        </div>
+        <div class="point">
+          <p>Gym Rat</p>
         </div>
         <div class="point">
           <p>Ex-professional FPS Player</p>
@@ -68,9 +72,23 @@ import icer from "@/assets/d/about_icer.png";
         <a href="https://www.instagram.com/senz.vt" class="btn btn-contact">
           <Icon name="mingcute:instagram-fill" is:inline />
         </a>
-        <a href="https://x.com/SenzVT" class="btn btn-contact">
-          <Icon name="mingcute:social-x-fill" is:inline />
+        <a
+          href="https://space.bilibili.com/3493084824340954"
+          class="btn btn-contact"
+        >
+          <Icon name="mingcute:bilibili-fill" is:inline />
         </a>
+        <div class="dropdown">
+          <a href="https://x.com/SenzVT" class="btn btn-contact">
+            <Icon name="mingcute:social-x-fill" is:inline />
+          </a>
+          <div class="drop">
+            <a href="https://x.com/sussenz" class="btn btn-contact">
+              <Icon name="mingcute:social-x-fill" is:inline />
+              <Icon name="tabler:rating-18-plus" is:inline />
+            </a>
+          </div>
+        </div>
       </div>
       <div class="action">
         <button
@@ -98,7 +116,7 @@ import icer from "@/assets/d/about_icer.png";
     </div>
     <div class="r">
       <div class="abouta">
-        <Image src={AboutA} alt={""} />
+        <Image src={AboutC} alt={""} />
       </div>
       <div class="aboutb">
         <Image src={AboutB} alt={""} />
@@ -130,15 +148,36 @@ import icer from "@/assets/d/about_icer.png";
       </a>
       <a href="https://x.com/SenzVT" class="btn btn-contact"> Spotify </a>
       <a href="https://x.com/SenzVT" class="btn btn-contact">X / Twitter</a>
-      <a href="#" class="btn btn-contact">Side Channel</a>
-      <a href="#" class="btn btn-contact">Reddit</a>
-      <a href="#" class="btn btn-contact">Throne</a>
-      <a href="#" class="btn btn-contact">VOD Channel</a>
-      <a href="#" class="btn btn-contact">Kick</a>
-      <a href="#" class="btn btn-contact">Patreon</a>
-      <a href="#" class="btn btn-contact">ASMR Channel</a>
-      <a href="#" class="btn btn-contact">Facebook</a>
-      <a href="#" class="btn btn-contact">Bluesky</a>
+      <a href="https://x.com/sussenz" class="btn btn-contact"
+        >X / Twitter (18+)</a
+      >
+      <a href="https://www.youtube.com/@SenzPlus" class="btn btn-contact"
+        >Side Channel</a
+      >
+      <a href="https://www.reddit.com/r/Senz" class="btn btn-contact">Reddit</a>
+      <a href="https://throne.com/senz" class="btn btn-contact">Throne</a>
+      <a
+        href="https://www.youtube.com/channel/UCSiDObMJCNSWjtfJN-VX_lg"
+        class="btn btn-contact">VOD Channel</a
+      >
+      <a href="https://kick.com/senz" class="btn btn-contact">Kick</a>
+      <a href="https://www.patreon.com/senz" class="btn btn-contact">Patreon</a>
+      <a href="https://www.youtube.com/@SenzASMRs" class="btn btn-contact"
+        >ASMR Channel</a
+      >
+      <a
+        href="https://www.facebook.com/profile.php?id=61554591705410"
+        class="btn btn-contact">Facebook</a
+      >
+      <a
+        href="https://bsky.app/profile/senzvt.bsky.social"
+        class="btn btn-contact">Bluesky</a
+      >
+      <a href="https://fansly.com/senz" class="btn btn-contact">Fansly</a>
+      <a
+        href="https://space.bilibili.com/3493084824340954"
+        class="btn btn-contact">Bilibili</a
+      >
     </div>
   </div>
 </div>
@@ -532,6 +571,7 @@ import icer from "@/assets/d/about_icer.png";
             width: 50px;
             height: 40px;
             padding: 0.4em;
+            display: block;
             border-radius: 0.4em;
             @media screen and (max-width: 768px) {
               width: 40px;
@@ -544,6 +584,33 @@ import icer from "@/assets/d/about_icer.png";
             svg {
               width: 100%;
               height: 100%;
+            }
+          }
+          .dropdown {
+            position: relative;
+            &:hover {
+              .drop {
+                opacity: 100%;
+                transform: translateY(10%);
+              }
+            }
+            .drop {
+              // display: none;
+
+              transform: translateY(0%);
+              transition: all 0.3s ease-in-out;
+              opacity: 0%;
+              position: absolute;
+              top: 100%;
+              left: 0%;
+              width: 100%;
+
+              .btn-contact {
+                background: #012d5a;
+                color: white;
+                width: auto;
+                display: flex;
+              }
             }
           }
         }
