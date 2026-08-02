@@ -17,6 +17,9 @@ import { Icon } from "astro-icon/components";
       <a href="https://www.instagram.com/senz.vt/" class="btn btn-headicon">
         <Icon name={"mingcute:instagram-fill"} is:inline />
       </a>
+      <a href="https://www.discord.gg/senz" class="btn btn-headicon">
+        <Icon name={"mingcute:discord-fill"} is:inline />
+      </a>
       <a href="https://www.youtube.com/@SenzVT" class="btn btn-headicon">
         <Icon name={"mingcute:youtube-fill"} is:inline />
       </a>
@@ -42,7 +45,8 @@ import { Icon } from "astro-icon/components";
         <div class="drop">
           <a href="https://x.com/sussenz" class="btn btn-headicon">
             <Icon name="mingcute:social-x-fill" is:inline />
-            <Icon name="tabler:rating-18-plus" is:inline />
+            <span>🔞 </span>
+            <!-- <Icon name="tabler:rating-18-plus" is:inline /> -->
           </a>
         </div>
       </div>
@@ -275,6 +279,10 @@ import { Icon } from "astro-icon/components";
                 border-radius: 1em;
                 height: auto;
                 padding: 0.5em;
+                align-items: center;
+              }
+              span {
+                font-size: 1.5em;
               }
               svg {
                 max-width: 100%;
